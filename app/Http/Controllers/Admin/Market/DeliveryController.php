@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Market;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class DeliveryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return view('admin.market.comment.index');
+        //
     }
 
     /**
@@ -44,11 +44,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //public function show($id)
-    public function show()
+    public function show($id)
     {
-        return view('admin.market.comment.show');
-
+        //
     }
 
     /**

@@ -14,7 +14,7 @@ class DeliveryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.market.delivery.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class DeliveryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.market.delivery.create');
     }
 
     /**

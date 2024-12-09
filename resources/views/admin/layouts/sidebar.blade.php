@@ -32,12 +32,12 @@
                     <i class="fas fa-angle-left angle"></i>
                 </section>
                 <section class="sidebar-dropdown">
-                    <a href="#"> جدید</a>
-                    <a href="#">در حال ارسال</a>
-                    <a href="#">پرداخت نشده</a>
-                    <a href="#">باطل شده</a>
-                    <a href="#">مرجوعی</a>
-                    <a href="#">تمام سفارشات</a>
+                    <a href="{{ route('admin.market.order.newOrder') }}"> جدید</a>
+                    <a href="{{ route('admin.market.order.sending') }}">در حال ارسال</a>
+                    <a href="{{ route('admin.market.order.unpaid') }}">پرداخت نشده</a>
+                    <a href="{{ route('admin.market.order.canceled') }}">باطل شده</a>
+                    <a href="{{ route('admin.market.order.retured') }}">مرجوعی</a>
+                    <a href="{{ route('admin.market.order.all') }}">تمام سفارشات</a>
                 </section>
             </section>
 
@@ -62,9 +62,9 @@
                     <i class="fas fa-angle-left angle"></i>
                 </section>
                 <section class="sidebar-dropdown">
-                    <a href="#">کپن تخفیف</a>
-                    <a href="#">تخفیف عمومی</a>
-                    <a href="#">فروش شگفت انگیز</a>
+                    <a href="{{ route('admin.market.discount.copan') }}">کپن تخفیف</a>
+                    <a href="{{ route('admin.market.discount.commonDiscount') }}">تخفیف عمومی</a>
+                    <a href="{{ route('admin.market.discount.amazingSale') }}">فروش شگفت انگیز</a>
                 </section>
             </section>
 

@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\Market\BrandController;
-use App\Http\Controllers\Admin\Market\CategoryController;
-use App\Http\Controllers\Admin\Market\CommentController;
-use App\Http\Controllers\Admin\Market\DeliveryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Market\BrandController;
+use App\Http\Controllers\Admin\Market\OrderController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\Market\CommentController;
+use App\Http\Controllers\Admin\Market\CategoryController;
+use App\Http\Controllers\Admin\Market\DeliveryController;
+use App\Http\Controllers\Admin\Market\DiscountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,30 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
             Route::get('/edit/{id}', [DeliveryController::class, 'edit'])->name('admin.market.delivery.edit');
             Route::put('/update', [DeliveryController::class, 'update'])->name('admin.market.delivery.update');
             Route::delete('/delete/{id}', [DeliveryController::class, 'destroy'])->name('admin.market.delivery.destroy');
+        });
+
+        //discount
+        Route::prefix('discount')->group(function () {
+            Route::get('/copan', [DiscountController::class, 'copan'])->name('admin.market.discount.copan');
+            Route::get('/copan/create', [DiscountController::class, 'copanCreate'])->name('admin.market.discount.copan.create');
+            Route::get('/common-discount', [DiscountController::class, 'commonDiscount'])->name('admin.market.discount.commonDiscount');
+            Route::get('/common-discount/create', [DiscountController::class, 'commonDiscountCreate'])->name('admin.market.discount.commonDiscount.create');
+            Route::get('/amazing-sale', [DiscountController::class, 'amazingSale'])->name('admin.market.discount.amazingSale');
+            Route::get('/amazing-sale/create', [DiscountController::class, 'amazingSaleCreate'])->name('admin.market.discount.amazingSale.create');
+        });
+
+        //order
+        Route::prefix('order')->group(function () {
+            Route::get('/', [OrderController::class, 'all'])->name('admin.market.order.all');
+            Route::get('/new-order', [OrderController::class, 'newOrder'])->name('admin.market.order.newOrder');
+            Route::get('/sending', [OrderController::class, 'sending'])->name('admin.market.order.sending');
+            Route::get('/unpaid', [OrderController::class, 'unpaid'])->name('admin.market.order.unpaid');
+            Route::get('/canceled', [OrderController::class, 'canceled'])->name('admin.market.order.canceled');
+            Route::get('/retured', [OrderController::class, 'retured'])->name('admin.market.order.retured');
+            Route::get('/show', [OrderController::class, 'show'])->name('admin.market.order.show');
+            Route::get('/change-send-status', [OrderController::class, 'changeSendStatus'])->name('admin.market.order.changeSendStatus');
+            Route::get('/change-order-status', [OrderController::class, 'changeOrderStatus'])->name('admin.market.order.changeOrderStatus');
+            Route::get('/cancel-order', [OrderController::class, 'cancelOrder'])->name('admin.market.order.cancelOrder');
         });
     });
 });

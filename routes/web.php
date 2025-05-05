@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Market\CommentController;
 use App\Http\Controllers\Admin\Market\CategoryController;
 use App\Http\Controllers\Admin\Market\DeliveryController;
 use App\Http\Controllers\Admin\Market\DiscountController;
+use App\Http\Controllers\Admin\Content\CategoryController as ContentCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +85,18 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
             Route::get('/change-send-status', [OrderController::class, 'changeSendStatus'])->name('admin.market.order.changeSendStatus');
             Route::get('/change-order-status', [OrderController::class, 'changeOrderStatus'])->name('admin.market.order.changeOrderStatus');
             Route::get('/cancel-order', [OrderController::class, 'cancelOrder'])->name('admin.market.order.cancelOrder');
+        });
+    });
+
+    Route::prefix('content')->namespace('Content')->group(function () {
+        //category
+        Route::prefix('category')->group(function () {
+            Route::get('/', [ContentCategoryController::class, 'index'])->name('admin.content.category.index');
+            Route::get('/create', [ContentCategoryController::class, 'create'])->name('admin.content.category.create');
+            Route::post('/store', [ContentCategoryController::class, 'store'])->name('admin.content.category.store');
+            Route::get('/edit/{id}', [ContentCategoryController::class, 'edit'])->name('admin.content.category.edit');
+            Route::put('/update', [ContentCategoryController::class, 'update'])->name('admin.content.category.update');
+            Route::delete('/delete/{id}', [ContentCategoryController::class, 'destroy'])->name('admin.content.category.destroy');
         });
     });
 });
